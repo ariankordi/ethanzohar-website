@@ -4,12 +4,11 @@ import { colorFromHex, pantsColorGrayNormal, favoriteColorTable, headToBodyScale
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as SkeletonUtils from 'three/examples/jsm/utils/SkeletonUtils.js';
-import FFLShaderMaterial from '../FFL.js/materials/FFLShaderMaterial.js';
-import SampleShaderMaterial, { type SampleShaderMaterialColorInfo } from '../FFL.js/materials/SampleShaderMaterial.js';
-import { detectModelDesc, applyScaleDesc } from '../FFL.js/helpers/ModelScaleDesc.js';
-import { addSkeletonScalingExtensions } from '../FFL.js/helpers/SkeletonScalingExtensions.js';
-import type { SkeletonWithAttachments } from "../FFL.js/helpers/SkeletonScalingExtensions.js";
-import type { BodyModel } from "../FFL.js/helpers/BodyUtilities";
+import FFLShaderMaterial from 'ffl.js/materials/FFLShaderMaterial.js';
+import SampleShaderMaterial, { type SampleShaderMaterialColorInfo } from 'ffl.js/materials/SampleShaderMaterial.js';
+import { detectModelDesc, applyScaleDesc } from 'ffl.js/helpers/ModelScaleDesc.js';
+import { addSkeletonScalingExtensions, type SkeletonWithAttachments } from 'ffl.js/helpers/SkeletonScalingExtensions.js';
+import type { BodyModel } from "ffl.js/helpers/BodyUtilities.js";
 
 const Gender = {
 	Male: 0,
@@ -109,8 +108,6 @@ export function Mii({ scene, miiUrl, overrides, position = [0, 0, 0], scale = 1}
     /**
      * Parameters for the shader material. Using SampleShaderMaterialParameters
      * as a lowest common denominator, but others can also be used.
-     * @type {import('three').MeshBasicMaterialParameters
-     * & import('./FFL.js/materials/SampleShaderMaterial.js').SampleShaderMaterialParameters}
      */
     const params: any = {
       // _side = original side from LUTShaderMaterial, must be set first
